@@ -33,12 +33,22 @@ session_start();
       </nav>
       <div class="main-content-header">
           
-          <form method="post" action="">
+          <form method="post" action="#" enctype="multipart/form-data">
               <h2>Step 2/2 : Add Semester Exam mark</h2>
          
-          <td><input type="hidden" name="level" class="level" value="<?php  echo $_POST['level']; ?>" required/></td>
+          <td><input type="text" name="level" class="box" placeholder='Level' required/></td>
           
-          <td><input type="hidden" name="regno" class="regno" value="<?php  echo $_POST['regno']; ?>" required/></td>
+          <td><input type="text" name="regno" class="box" placeholder='Reg No.' required/></td>
+
+          <td><input type='text' name='name' placeholder='Enter Full Name' required class="box"/></td>
+
+
+           <!-- <table class="table3">
+           <tr>
+               <th>Choose Image -</th>
+               <td><input type="file" name="img" required/></td>
+           </tr> 
+         </table> -->
           
               
               
@@ -104,12 +114,17 @@ if (isset($_POST['submit'])) {
     $regno = $_POST['regno'];
 
     
-    // $username = $_POST['name'];
+    $username = $_POST['name'];
     // $mobile = $_POST['mobile'];
 
     // $imagename = $_FILES['img']['name'];
     // $tempname = $_FILES['img']['tmp_name'];
-    // move_uploaded_file($tempname, "uploaded-img/$imagename");
+    // move_uploaded_file($tempname, "images/$imagename");
+
+    // if ($_FILES['img']['error'] !== UPLOAD_ERR_OK) {
+    //     echo "File upload error: " . $_FILES['img']['error'];
+    // }
+    
 
     $english1 = $_POST['english1'];
     $math1 = $_POST['math1'];
@@ -122,7 +137,7 @@ if (isset($_POST['submit'])) {
     $chemistry2 = $_POST['chemistry2'];
 
     
-    $sql = "INSERT INTO `user_mark`(`u_regno`, `u_level`, `u_english1`, `u_math1`, `u_physics1`, `u_chemistry1`, `u_english2`, `u_math2`, `u_physics2`, `u_chemistry2`) VALUES ('$regno','$level','$english1','$math1','$physics1','$chemistry1','$english2','$math2','$physics2','$chemistry2')";
+    $sql = "INSERT INTO `user_mark`(`u_regno`, `u_level`, `u_name`, `u_english1`, `u_math1`, `u_physics1`, `u_chemistry1`, `u_english2`, `u_math2`, `u_physics2`, `u_chemistry2`) VALUES ('$regno','$level', '$username', '$english1','$math1','$physics1','$chemistry1','$english2','$math2','$physics2','$chemistry2')";
 
     $run = mysqli_query($con, $sql);
 
@@ -134,11 +149,13 @@ if (isset($_POST['submit'])) {
         </script>
         <?php
     } else {
-        ?>
-        <script>
+     ?>
+         <script>
         alert('Could not insert data');
         </script>
-        <?php
+     <?php
+
+        echo "Error: " . mysqli_error($con);
     }
 }
 

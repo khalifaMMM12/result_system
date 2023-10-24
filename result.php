@@ -2,15 +2,13 @@
 <?php
 if(isset($_POST['submit']))
 {
-
-	include('dbcon.php');
-	
+    
 	$level=$_POST['level'];
 	$regno =$_POST['regno'];
-	$sql="SELECT * FROM `student_data` WHERE `u_level`='$level' AND `u_regno`='$regno'";
-    $sql2="SELECT * FROM `user_mark` WHERE `u_level`='$level' AND `u_regno`='$regno'";
+	$sql="SELECT * FROM `student_data` WHERE  `u_level`='$level' AND `u_regno`='$regno'";
+    $sql="SELECT * FROM `user_mark` WHERE `u_level`='$level' AND `u_regno`='$regno'";
 $run=mysqli_query($con,$sql);
-$run2=mysqli_query($con,$sql2);
+$run2=mysqli_query($con,$sql);
    $row=mysqli_num_rows($run2);
    $data2=mysqli_fetch_assoc($run2);
        
@@ -42,7 +40,7 @@ $data=mysqli_fetch_assoc($run);
       <div class="main-content-header">
         <form method="post" action="result.php">
           <table class="table">
-              <img src="uploaded-img/<?php  echo $data['u_image']; ?>" class="image2" /> 
+              <!-- <img src="uploaded-img/<?php  echo $data['u_image']; ?>" class="image2" />  -->
               <tr>
               <th>Name :</th>
                 <td><?php echo $data['u_name'] ?></td>

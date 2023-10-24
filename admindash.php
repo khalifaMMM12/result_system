@@ -35,7 +35,8 @@ session_start();
       </nav>
       <div class="main-content-header">
         <h1>Admin Dashboard</h1>
-       <h3><a href="addmark.php">-> Add Marks of Student </a></h3>
+        <h3><a href="addmark.php">-> Add Student Data </a></h3>
+       <h3><a href="next_mark_form.php">-> Add Marks of Student </a></h3>
        <h3><a href="updatemark.php">-> Update Student Marks </a></h3>
        <h3><a href="deleteform.php">-> Delete the Marks of Student </a></h3>
        <h3><a href="allstudentdata.php">-> Data of all Students </a></h3>

@@ -63,8 +63,8 @@ session_start();
          </table>
          <table class="table4">
             <tr>
-           <td align="center" colspan="2"><input type="submit" name="submit1" value="Submit" class="submit"/></td>
-           <td align="center" colspan="2"><a href="next_mark_form.php" class="next">Next</a></td>
+           <td align="center" colspan="2"><input type="submit" name="submit" value="Submit" class="submit"/></td>
+           <!-- <td align="center" colspan="2"><a href="next_mark_form.php" class="next">Next</a></td> -->
            </tr>
         </table>
        </form>
@@ -76,7 +76,7 @@ session_start();
 </body>
 </html> 
 <?php
-if(isset($_POST['submit1']))
+if(isset($_POST['submit']))
 { 
     include('dbcon.php');
     $username=$_POST['name'];
@@ -94,7 +94,7 @@ if(isset($_POST['submit1']))
     {
         ?>
         <script>
-        alert('Click on next to add student marks');
+        alert('Student Data Added Successfully');
         </script>
         <?php
     }
@@ -105,6 +105,9 @@ if(isset($_POST['submit1']))
         alert('Failed');
         </script>
         <?php 
+
+    // echo "Error: " . mysqli_error($con);
+
     }
 }
 

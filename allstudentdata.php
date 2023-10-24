@@ -42,6 +42,8 @@ session_start();
            <th class="contact_h1">Level </th> 
            <th class="contact_h1">Reg No.</th>
            <th class="name_h1">Mobile No</th>
+           <th class="name_h1">Image</th>
+           
          </tr>
         
 <?php
@@ -59,6 +61,7 @@ include('dbcon.php');
             <th class="email_h"> <?php  echo $row['u_level'].'<br>'; ?></th> 
             <th class="contact_h"> <?php  echo $row['u_regno'].'<br>'; ?></th> 
             <th class="massage_h"><?php  echo $row['u_mobile'].'<br>'; ?></th> 
+            <th class="image_h"> <img src="uploaded-img/<?php  echo $row['u_image']; ?>" class="image2" /></th>
         </tr>     
         <?php    
         }
