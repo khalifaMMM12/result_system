@@ -2,7 +2,9 @@
 <?php
 if(isset($_POST['submit']))
 {
-    
+
+	include('dbcon.php');
+	
 	$level=$_POST['level'];
 	$regno =$_POST['regno'];
 	$sql="SELECT * FROM `student_data` WHERE  `u_level`='$level' AND `u_regno`='$regno'";
@@ -40,7 +42,7 @@ $data=mysqli_fetch_assoc($run);
       <div class="main-content-header">
         <form method="post" action="result.php">
           <table class="table">
-              <!-- <img src="uploaded-img/<?php  echo $data['u_image']; ?>" class="image2" />  -->
+              <img class="image2" /> 
               <tr>
               <th>Name :</th>
                 <td><?php echo $data['u_name'] ?></td>
@@ -129,7 +131,7 @@ else
 ?>
 <script>
 alert('Record Not found');
-    window.open('index.php','_self');
+    // window.open('index.php','_self');
 </script>
 <?php
 }
